@@ -6,11 +6,11 @@
     </div>
     <div class="mb-3">
         <label for="username" class="form-label">Username</label>
-        <input class="form-control" type="text" [(ngModel)]="username" value="" name="username">
+        <input class="form-control" type="text" [(ngModel)]="username" value={{username}} name="username">
     </div>
     <div class="mb-3">
         <label for="password" class="form-label">Password</label>
-        <input class="form-control" type="password" [(ngModel)]="password" value="" name="password">
+        <input class="form-control" type="password" [(ngModel)]="password" value={{password}} name="password">
     </div>
-    <button (click)="login(username, password)" class="btn btn-primary">Submit</button>
+    <button (click)="login()" class="btn btn-primary">Submit</button>
 </form>

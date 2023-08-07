@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,22 +10,19 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   username: string = "";
   password: string = "";
-  accounts = [
-    {username: "bob", password: "alice123"},
-    {username: "alice", password: "bob123"},
-    {username: "fred", password: "i<3angular"}
-  ]
+
   error: boolean = false
-  login = (usr:string, pwd:string) => {
-    let auth = this.accounts.find(item => item.username == usr && item.password == pwd)
-    if(auth){
+  login = async () => {
+    console.log(this.username, this.password)
+    let req = await this.auth.authenticate(this.username, this.password)
+    if(req.valid){
       this.router.navigate(['account'])
     } else {
       this.error = true
     }
   }
   
-  constructor(private router: Router){
+  constructor(private router: Router, private auth: AuthService){
 
   }
 

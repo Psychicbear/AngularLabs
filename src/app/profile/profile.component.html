@@ -1,0 +1,19 @@
+<h1>Edit Profile</h1>
+<form>
+    <!-- <div *ngIf="error" class="alert alert-danger">
+        Error: Invalid login!
+    </div> -->
+    <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input class="form-control" type="text" [(ngModel)]="username" value={{username}} name="username">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input class="form-control" type="text" [(ngModel)]="email" value={{email}} name="email">
+    </div>
+    <div class="mb-3">
+        <label for="birthdate" class="form-label">Birthdate</label>
+        <input class="form-control" type="date" [(ngModel)]="birthdate" value={{birthdate}} name="birthdate">
+    </div>
+    <button (click)="saveChanges()" class="btn btn-primary">Save</button>
+</form>
